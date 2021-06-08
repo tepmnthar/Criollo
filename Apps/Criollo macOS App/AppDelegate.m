@@ -358,4 +358,37 @@ NS_ASSUME_NONNULL_END
     [SystemInfoHelper addRequest];
 }
 
+#pragma mark - CRSocketDelegate
+
+- (void)socket:(CRSocket *)sock didAccept:(int)fd addr:(struct sockaddr *)sa len:(socklen_t)len {
+#if DEBUG
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    
+    NSError *error;
+    NSString *address;
+    NSUInteger port;
+    
+    if ( ![CRSocket getSocketAddr:sa address:&address port:&port error:&error] ) {
+        NSLog(@" *** %@", error);
+    } else {
+        NSLog(@" *** %@:%lu", address, (unsigned long)port);
+    }
+#endif
+}
+
+- (void)socket:(nonnull CRSocket *)sock didReadData:(nonnull const void *)buf size:(size_t)len descriptor:(int)fd {
+#if DEBUG
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%s", buf);
+#endif
+}
+
+- (void)socket:(nonnull CRSocket *)sock didDisconnect:(int)fd {
+#if DEBUG
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+#endif
+}
+
+
+
 @end
