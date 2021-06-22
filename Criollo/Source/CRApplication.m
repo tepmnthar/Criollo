@@ -34,7 +34,7 @@ static id<CRApplicationDelegate> CRAppDelegate;
 
 NS_ASSUME_NONNULL_END
 
-void CRHandleSignal(int sig) {
+static void CRHandleSignal(int sig) {
     signal(sig, SIG_IGN);
     [CRApplication.sharedApplication terminate:nil];
     signal(sig, CRHandleSignal);
@@ -55,21 +55,26 @@ int CRApplicationMain(int argc, const char * argv[], id<CRApplicationDelegate> d
 @implementation CRApplication
 
 - (void)setDelegate:(id<CRApplicationDelegate>)delegate {
-    if ( _delegate ) {
-        [[NSNotificationCenter defaultCenter] removeObserver:_delegate];
-        _delegate = nil;
+    id<CRApplicationDelegate> cv = _delegate;
+    if (cv == delegate) {
+        return;
+    }
+    
+    NSNotificationCenter *nc = NSNotificationCenter.defaultCenter;
+    if (cv) {
+        [nc removeObserver:cv];
     }
     
     _delegate = delegate;
     
-    if ( [(id)_delegate respondsToSelector:@selector(applicationWillFinishLaunching:)] ) {
-        [[NSNotificationCenter defaultCenter] addObserver:_delegate selector:@selector(applicationWillFinishLaunching:) name:CRApplicationWillFinishLaunchingNotification object:nil];
+    if ([(id)delegate respondsToSelector:@selector(applicationWillFinishLaunching:)]) {
+        [nc addObserver:delegate selector:@selector(applicationWillFinishLaunching:) name:CRApplicationWillFinishLaunchingNotification object:self];
     }
-    if ( [(id)_delegate respondsToSelector:@selector(applicationDidFinishLaunching:)] ) {
-        [[NSNotificationCenter defaultCenter] addObserver:_delegate selector:@selector(applicationDidFinishLaunching:) name:CRApplicationDidFinishLaunchingNotification object:nil];
+    if ([(id)delegate respondsToSelector:@selector(applicationDidFinishLaunching:)]) {
+        [nc addObserver:delegate selector:@selector(applicationDidFinishLaunching:) name:CRApplicationDidFinishLaunchingNotification object:self];
     }
-    if ( [(id)_delegate respondsToSelector:@selector(applicationWillTerminate:)] ) {
-        [[NSNotificationCenter defaultCenter] addObserver:_delegate selector:@selector(applicationWillTerminate:) name:CRApplicationWillTerminateNotification object:nil];
+    if ([(id)delegate respondsToSelector:@selector(applicationWillTerminate:)] ) {
+        [nc addObserver:delegate selector:@selector(applicationWillTerminate:) name:CRApplicationWillTerminateNotification object:self];
     }
 }
 
@@ -128,9 +133,10 @@ int CRApplicationMain(int argc, const char * argv[], id<CRApplicationDelegate> d
 - (void)terminate:(id)sender {
     [self performSelectorOnMainThread:@selector(stop:) withObject:nil waitUntilDone:YES];
     
+    id<CRApplicationDelegate> delegate = self.delegate;
     CRApplicationTerminateReply reply = CRTerminateNow;
-    if ([(id)_delegate respondsToSelector:@selector(applicationShouldTerminate:)]) {
-        reply = [_delegate applicationShouldTerminate:self];
+    if ([(id)delegate respondsToSelector:@selector(applicationShouldTerminate:)]) {
+        reply = [delegate applicationShouldTerminate:self];
     }
     
     switch (reply) {

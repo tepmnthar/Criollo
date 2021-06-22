@@ -16,6 +16,7 @@
 #import "CRRoute.h"
 #import "CRRouteMatchingResult.h"
 #import "CRRouter_Internal.h"
+#import "Macros.h"
 #import "NSString+Criollo.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -36,15 +37,14 @@ NS_ASSUME_NONNULL_END
     self = [super init];
     if ( self != nil ) {
         _prefix = prefix;
-
-        CRRouteController * __weak controller = self;
-        _routeBlock = ^(CRRequest *request, CRResponse *response, CRRouteCompletionBlock completionHandler) {
-            @autoreleasepool {
-                NSString* requestedPath = request.env[@"DOCUMENT_URI"];
-                NSString* requestedRelativePath = [requestedPath pathRelativeToPath:controller.prefix separator:CRRoutePathSeparator];
-                NSArray<CRRouteMatchingResult *>* routes = [controller routesForPath:requestedRelativePath method:request.method];
-                [controller executeRoutes:routes request:request response:response withCompletion:completionHandler];
-            }
+        
+        weakify(self);
+        _routeBlock = ^(CRRequest *request, CRResponse *response, CRRouteCompletionBlock completion) {
+            strongify(self);
+            NSString *requestedPath = request.env[@"DOCUMENT_URI"];
+            NSString *requestedRelativePath = [requestedPath pathRelativeToPath:self.prefix separator:CRRoutePathSeparator];
+            NSArray<CRRouteMatchingResult *>* routes = [self routesForPath:requestedRelativePath method:request.method];
+            [self executeRoutes:routes request:request response:response withCompletion:completion];
         };
     }
     return self;

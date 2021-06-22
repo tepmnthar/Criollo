@@ -15,6 +15,7 @@
 
 #import "CRRoute.h"
 #import "CRRouter_Internal.h"
+#import "Macros.h"
 #import "NSString+Criollo.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -51,24 +52,28 @@ NS_ASSUME_NONNULL_END
         _nibBundle = nibBundleOrNil ? : [NSBundle mainBundle];
         _vars = [NSMutableDictionary dictionary];
 
-        CRViewController* __weak controller = self;
-        self.routeBlock = ^(CRRequest *request, CRResponse *response, CRRouteCompletionBlock completionHandler) { @autoreleasepool {
+        weakify(self);
+        
+        CRRouteBlock notFoundBlock = ^(CRRequest *request, CRResponse *response, CRRouteCompletionBlock completion) {
+            strongify(self);
+            [response setValue:@"text/html; charset=utf-8" forHTTPHeaderField:@"Content-type"];
+            NSString* output = [self presentViewControllerWithRequest:request response:response];
+            if (self.shouldFinishResponse) {
+                [response sendString:output];
+            } else {
+                [response writeString:output];
+            }
+            
+            completion();
+        };
+        
+        self.routeBlock = ^(CRRequest *request, CRResponse *response, CRRouteCompletionBlock completion) {
+            strongify(self);
             NSString* requestedPath = request.env[@"DOCUMENT_URI"];
-            NSString* requestedRelativePath = [requestedPath pathRelativeToPath:controller.prefix separator:CRRoutePathSeparator];
-            NSArray<CRRouteMatchingResult * >* routes = [controller routesForPath:requestedRelativePath method:request.method];
-            [controller executeRoutes:routes request:request response:response withCompletion:completionHandler notFoundBlock:^(CRRequest * _Nonnull req, CRResponse * _Nonnull res, CRRouteCompletionBlock  _Nonnull completion) { @autoreleasepool {
-                [res setValue:@"text/html; charset=utf-8" forHTTPHeaderField:@"Content-type"];
-
-                NSString* output = [controller presentViewControllerWithRequest:req response:res];
-                if ( controller.shouldFinishResponse ) {
-                    [res sendString:output];
-                } else {
-                    [res writeString:output];
-                }
-
-                completion();
-            }}];
-        }};
+            NSString* requestedRelativePath = [requestedPath pathRelativeToPath:self.prefix separator:CRRoutePathSeparator];
+            NSArray<CRRouteMatchingResult * >* routes = [self routesForPath:requestedRelativePath method:request.method];
+            [self executeRoutes:routes request:request response:response withCompletion:completion notFoundBlock:notFoundBlock];
+        };
     }
     return self;
 }

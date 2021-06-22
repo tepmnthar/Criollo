@@ -16,6 +16,7 @@
 #import "CRRouter_Internal.h"
 #import "CRStaticFileManager_Internal.h"
 #import "CRStaticFileManager_Internal.h"
+#import "Macros.h"
 #import "NSString+Criollo.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -59,9 +60,10 @@ NS_ASSUME_NONNULL_END
         }
         _prefix = prefix.stringByStandardizingPath;
         
-        __weak typeof(self) wself = self;
+        weakify(self);
         _routeBlock = ^(CRRequest * _Nonnull request, CRResponse * _Nonnull response, CRRouteCompletionBlock _Nonnull completion) {
-            [wself handleRequest:request response:response completion:completion];
+            strongify(self);
+            [self handleRequest:request response:response completion:completion];
         };
     }
     return self;

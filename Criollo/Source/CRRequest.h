@@ -25,7 +25,7 @@ NS_ERROR_ENUM(CRRequestErrorDomain) {
 #pragma mark - Request Content Types
 
 /// Mime types of the requests we support body parsing for
-typedef NSString * CRRequestContentType NS_EXTENSIBLE_STRING_ENUM;
+typedef NSString * CRRequestContentType NS_TYPED_EXTENSIBLE_ENUM;
 
 FOUNDATION_EXPORT CRRequestContentType const CRRequestContentTypeJSON;
 FOUNDATION_EXPORT CRRequestContentType const CRRequestContentTypeURLEncoded;
@@ -41,18 +41,18 @@ FOUNDATION_EXPORT CRRequestContentType const CRRequestContentTypeOther;
 @interface CRRequest : CRMessage
 
 @property (nonatomic, weak, nullable) CRConnection *connection;
-@property (nonatomic, strong, nullable) CRResponse * response;
+@property (nonatomic, strong, nullable) CRResponse *response;
 
-@property (nonatomic, readonly, strong) NSURL * URL;
+@property (nonatomic, readonly, strong) NSURL *URL;
 @property (nonatomic, readonly) CRHTTPMethod method;
 
-@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> * env;
-@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> * query;
-@property (nonatomic, readonly, strong, nullable) NSDictionary<NSString *, NSString *> * cookies;
+@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *env;
+@property (nonatomic, readonly, strong) NSDictionary<NSString *, NSString *> *query;
+@property (nonatomic, readonly, strong, nullable) NSDictionary<NSString *, NSString *> *cookies;
 @property (nonatomic, readonly, strong, nullable) id body;
-@property (nonatomic, readonly, strong, nullable) NSDictionary<NSString *, CRUploadedFile *> * files;
+@property (nonatomic, readonly, strong, nullable) NSDictionary<NSString *, CRUploadedFile *> *files;
 
-@property (nonatomic, readonly, nullable) CRRequestRange * range;
+@property (nonatomic, readonly, nullable) CRRequestRange *range;
 
 @end
 

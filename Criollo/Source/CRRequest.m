@@ -295,28 +295,28 @@ CRRequestContentType const CRRequestContentTypeOther = @"";
                 NSString* headerString = [[NSString alloc] initWithBytesNoCopy:(void *)headerData.bytes length:headerData.length encoding:NSUTF8StringEncoding freeWhenDone:NO];
 
                 // Parse the header
-                NSMutableDictionary<NSString *, NSString *> * headerFields = [NSMutableDictionary dictionary];
-                NSArray<NSString *> * headerLines = [headerString componentsSeparatedByString:@"\r\n"];
-                [headerLines enumerateObjectsUsingBlock:^(NSString * _Nonnull headerLine, NSUInteger idx, BOOL * _Nonnull stop) { @autoreleasepool {
-                    NSArray* headerComponents = [headerLine componentsSeparatedByString:CRRequestHeaderNameSeparator];
-                    NSString* headerName = [headerComponents[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].lowercaseString;
-                    NSString* headerValue = [headerComponents[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                    NSArray* headerValueComponents = [headerValue componentsSeparatedByString:CRRequestHeaderSeparator];
-                    [headerValueComponents enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) { @autoreleasepool {
-                        if ( idx == 0 ) {
-                            headerFields[headerName] = [obj stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                NSMutableDictionary<NSString *, NSString *> *headerFields = [NSMutableDictionary dictionary];
+                NSArray<NSString *> *headerLines = [headerString componentsSeparatedByString:@"\r\n"];
+                for (NSString *headerLine in headerLines) {
+                    NSArray *headerComponents = [headerLine componentsSeparatedByString:CRRequestHeaderNameSeparator];
+                    NSString *headerName = [headerComponents[0] stringByTrimmingCharactersInSet:NSCharacterSet .whitespaceCharacterSet].lowercaseString;
+                    NSString *headerValue = [headerComponents[1] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+                    NSArray *headerValueComponents = [headerValue componentsSeparatedByString:CRRequestHeaderSeparator];
+                    [headerValueComponents enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                        if (idx == 0) {
+                            headerFields[headerName] = [obj stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
                             return;
                         }
 
                         NSArray* headerValueComponentsParts = [obj componentsSeparatedByString:CRRequestValueSeparator];
-                        NSString* headerValueComponentsPartName = [headerValueComponentsParts[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                        NSString* headerValueComponentsPartName = [headerValueComponentsParts[0] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
                         NSString* headerValueComponentsPartValue = [headerValueComponentsParts[1] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\" "]];
                         headerFields[headerValueComponentsPartName] = headerValueComponentsPartValue;
-                    }}];
-                }}];
+                    }];
+                }
 
                 // Close any file output streams
-                if ( currentMultipartFileKey != nil ) {
+                if (currentMultipartFileKey) {
                     [self.files[currentMultipartFileKey] finishWriting];
                 }
 

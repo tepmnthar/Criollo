@@ -141,28 +141,25 @@ NS_ASSUME_NONNULL_END
 - (void)didReceiveCompleteHeaders:(CRRequest *)request {
     // Create HTTP headers from FCGI Params
     NSMutableData* headersData = [NSMutableData data];
-    [request.env enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
-        @autoreleasepool {
-            if ( ![key hasPrefix:@"HTTP_"] ) {
-                return;
-            }
-            NSArray<NSString*>* headerParts = [[key substringFromIndex:5] componentsSeparatedByString:@"_"];
-            NSMutableArray<NSString*>* transformedHeaderParts = [NSMutableArray arrayWithCapacity:headerParts.count];
-
-            [headerParts enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                @autoreleasepool {
-                    NSString* transformedHeaderPart = [[obj substringToIndex:1].uppercaseString stringByAppendingString:[obj substringFromIndex:1].lowercaseString];
-                    [transformedHeaderParts addObject:transformedHeaderPart];
-                }
-            }];
-
-            NSString* headerName = [transformedHeaderParts componentsJoinedByString:@"-"];
-
-            NSData* headerData = [[NSString stringWithFormat:@"%@: %@", headerName, obj] dataUsingEncoding:NSUTF8StringEncoding];
-            [headersData appendData:headerData];
-            [headersData appendData:NSData.CRLF];
+    for (NSString *key in request.env) {
+        if (![key hasPrefix:@"HTTP_"]) {
+            continue;
         }
-    }];
+        
+        NSString *obj = request.env[key];
+        NSArray<NSString *> *headerParts = [[key substringFromIndex:5] componentsSeparatedByString:@"_"];
+        NSMutableArray<NSString *> *transformedHeaderParts = [NSMutableArray arrayWithCapacity:headerParts.count];
+        for (NSString *headerPart in headerParts) {
+            NSString* transformedHeaderPart = [[headerPart substringToIndex:1].uppercaseString stringByAppendingString:[headerPart substringFromIndex:1].lowercaseString];
+            [transformedHeaderParts addObject:transformedHeaderPart];
+        }
+        
+        NSString* headerName = [transformedHeaderParts componentsJoinedByString:@"-"];
+        
+        NSData* headerData = [[NSString stringWithFormat:@"%@: %@", headerName, obj] dataUsingEncoding:NSUTF8StringEncoding];
+        [headersData appendData:headerData];
+        [headersData appendData:NSData.CRLF];
+    }
 
     [request appendData:headersData];
     [request appendData:NSData.CRLF];
@@ -241,8 +238,9 @@ NS_ASSUME_NONNULL_END
 
                     case CRFCGIRecordTypeStdIn: {
 
-                        if ( currentRequestBodyLength == currentRequestBodyReceivedBytesLength ) {
-                            [self didReceiveCompleteRequest:self.requestBeingReceived];
+                        if (currentRequestBodyLength == currentRequestBodyReceivedBytesLength) {
+                            CRRequest *request = self.requestBeingReceived;
+                            [self didReceiveCompleteRequest:request];
                         } else {
                             [self.socket disconnectAfterWriting];
                         }
@@ -292,7 +290,8 @@ NS_ASSUME_NONNULL_END
                 case CRFCGIRecordTypeStdIn: {
 
                     NSData* currentRecordContentData = [NSData dataWithBytesNoCopy:(void *)data.bytes length:currentRecord.contentLength freeWhenDone:NO];
-                    [self didReceiveBodyData:currentRecordContentData request:self.requestBeingReceived];
+                    CRRequest *request = self.requestBeingReceived;
+                    [self didReceiveBodyData:currentRecordContentData request:request];
 
                     currentRequestBodyReceivedBytesLength += currentRecord.contentLength;
 

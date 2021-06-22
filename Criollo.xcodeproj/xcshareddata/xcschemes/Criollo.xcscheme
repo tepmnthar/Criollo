@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AD5FFFCB1BF0024D00A57FE9"
+               BlueprintIdentifier = "ADEDB3751AEFC0B000A26AF1"
                BuildableName = "Criollo.framework"
-               BlueprintName = "Criollo iOS"
+               BlueprintName = "Criollo"
                ReferencedContainer = "container:Criollo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,9 +31,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD5FFFCB1BF0024D00A57FE9"
+            BlueprintIdentifier = "ADEDB3751AEFC0B000A26AF1"
             BuildableName = "Criollo.framework"
-            BlueprintName = "Criollo iOS"
+            BlueprintName = "Criollo"
             ReferencedContainer = "container:Criollo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -42,9 +42,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AD030FEB1F0C037500BD9FE4"
-               BuildableName = "CriolloTests iOS.xctest"
-               BlueprintName = "CriolloTests iOS"
+               BlueprintIdentifier = "AD030FDA1F0C02C900BD9FE4"
+               BuildableName = "CriolloTests.xctest"
+               BlueprintName = "CriolloTests"
                ReferencedContainer = "container:Criollo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD5FFFCB1BF0024D00A57FE9"
+            BlueprintIdentifier = "ADEDB3751AEFC0B000A26AF1"
             BuildableName = "Criollo.framework"
-            BlueprintName = "Criollo iOS"
+            BlueprintName = "Criollo"
             ReferencedContainer = "container:Criollo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,9 +79,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AD5FFFCB1BF0024D00A57FE9"
+            BlueprintIdentifier = "ADEDB3751AEFC0B000A26AF1"
             BuildableName = "Criollo.framework"
-            BlueprintName = "Criollo iOS"
+            BlueprintName = "Criollo"
             ReferencedContainer = "container:Criollo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

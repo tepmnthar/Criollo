@@ -21,6 +21,7 @@
 #import "CRResponse_Internal.h"
 #import "CRServer_Internal.h"
 #import "CRServerConfiguration.h"
+#import "Macros.h"
 #import "NSDate+RFC1123.h"
 
 static int const CRConnectionSocketTagSendingResponse = 20;
@@ -130,38 +131,40 @@ NS_ASSUME_NONNULL_END
     if (self.willDisconnect) {
         return;
     }
-
+    
     // Parse request body
-    NSUInteger contentLength = [self.requestBeingReceived.env[@"HTTP_CONTENT_LENGTH"] integerValue];
+    NSUInteger contentLength = [request.env[@"HTTP_CONTENT_LENGTH"] integerValue];
     if ( contentLength > 0 ) {
         NSError* bodyParsingError;
-        NSString* contentType = self.requestBeingReceived.env[@"HTTP_CONTENT_TYPE"];
+        NSString* contentType = request.env[@"HTTP_CONTENT_TYPE"];
 
         BOOL result = YES;
 
         if (contentType.requestContentType == CRRequestContentTypeJSON) {
-            result = [self.requestBeingReceived parseJSONBodyData:&bodyParsingError];
+            result = [request parseJSONBodyData:&bodyParsingError];
         } else if (contentType.requestContentType == CRRequestContentTypeURLEncoded) {
-            result = [self.requestBeingReceived parseURLEncodedBodyData:&bodyParsingError];
+            result = [request parseURLEncodedBodyData:&bodyParsingError];
         } else if (contentType.requestContentType == CRRequestContentTypeMultipart) {
             // multipart/form-data requests are parsed as they come in and not once the
             // request hast been fully received ;)
         } else {
             // other mime types are assumed to be files and will be treated just like
             // multipart request files. What we need to do here is to reset the target
-            [self.requestBeingReceived clearBodyParsingTargets];
+            [request clearBodyParsingTargets];
         }
 
-        if ( !result ) {
+        if (!result) {
             // TODO: Propagate the error, do not log from here
             [CRApp logErrorFormat:@"%@" , bodyParsingError];
         }
     }
 
-    CRResponse* response = [self responseWithHTTPStatusCode:200 description:nil version:self.requestBeingReceived.version];
-    self.requestBeingReceived.response = response;
-    response.request = self.requestBeingReceived;
-    [self.delegate connection:self didReceiveRequest:self.requestBeingReceived response:response];
+    CRResponse* response = [self responseWithHTTPStatusCode:200 description:nil version:request.version];
+    request.response = response;
+    response.request = request;
+    [self.delegate connection:self didReceiveRequest:request response:response];
+    
+    // Read new request
     [self startReading];
 }
 
@@ -220,9 +223,10 @@ NS_ASSUME_NONNULL_END
     }
     
     if (tag == CRConnectionSocketTagSendingResponse) {
-        NSData *bufferedResponseData = self.firstRequest.bufferedResponseData;
+        CRRequest *firstRequest = self.firstRequest;
+        NSData *bufferedResponseData = firstRequest.bufferedResponseData;
         if (bufferedResponseData.length > 0) {
-            [self sendData:bufferedResponseData request:self.firstRequest];
+            [self sendData:bufferedResponseData request:firstRequest];
         }
     }
 }
