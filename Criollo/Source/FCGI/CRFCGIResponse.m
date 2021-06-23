@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_END
 
     CRFCGIServerConfiguration* config = (CRFCGIServerConfiguration*)self.connection.server.configuration;
 
-    NSMutableData* recordData = [NSMutableData dataWithCapacity:config.CRFCGIConnectionSocketWriteBuffer];
+    NSMutableData *recordData = [NSMutableData dataWithCapacity:config.CRFCGIConnectionSocketWriteBuffer];
     NSUInteger offset = 0;
 
     do {
@@ -129,7 +129,7 @@ NS_ASSUME_NONNULL_END
         UInt16 requestID = CFSwapInt16HostToBig(((CRFCGIRequest*)self.request).requestID);
         [recordData appendBytes:&requestID length:2];
 
-        UInt16 contentLength = CFSwapInt16HostToBig(chunkSize);
+        UInt16 contentLength = CFSwapInt16HostToBig((uint16_t)chunkSize);
         [recordData appendBytes:&contentLength length:2];
 
         UInt8 paddingLength = 0;

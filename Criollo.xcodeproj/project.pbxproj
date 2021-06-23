@@ -38,10 +38,6 @@
 		AD1D44F81F376DED00C5D260 /* CRViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1D44F71F376DED00C5D260 /* CRViewTests.m */; };
 		AD227F8A1BDC3F6000C23D52 /* CRServerConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = AD227F881BDC3F6000C23D52 /* CRServerConfiguration.h */; };
 		AD227F8B1BDC3F6000C23D52 /* CRServerConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = AD227F891BDC3F6000C23D52 /* CRServerConfiguration.m */; };
-		AD2411E3268250B10076D5D5 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E624792E7900F3C06A /* CocoaAsyncSocket.framework */; platformFilter = maccatalyst; };
-		AD2411E4268250B10076D5D5 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E624792E7900F3C06A /* CocoaAsyncSocket.framework */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AD2411F8268251940076D5D5 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E424792E7900F3C06A /* CocoaAsyncSocket.framework */; platformFilter = ios; };
-		AD241203268256890076D5D5 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E824792E7900F3C06A /* CocoaAsyncSocket.framework */; platformFilter = ios; };
 		AD2A35491C47FA8000E30387 /* CRUploadedFile.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2A35471C47FA8000E30387 /* CRUploadedFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD2A354B1C47FA8000E30387 /* CRUploadedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2A35481C47FA8000E30387 /* CRUploadedFile.m */; };
 		AD4AE7721BDAB1C300B9F221 /* CRConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4AE7701BDAB1C300B9F221 /* CRConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -111,6 +107,8 @@
 		ADD2B60D1BFE70AE00E2E632 /* NSHTTPCookie+Criollo.m in Sources */ = {isa = PBXBuildFile; fileRef = ADD2B60B1BFE70AE00E2E632 /* NSHTTPCookie+Criollo.m */; };
 		ADE99FB71C6B40E10080B1FA /* CRStaticDirectoryManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ADE99FB51C6B40E10080B1FA /* CRStaticDirectoryManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADE99FB91C6B40E10080B1FA /* CRStaticDirectoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADE99FB61C6B40E10080B1FA /* CRStaticDirectoryManager.m */; };
+		ADEBA05A26836CCF00719AD8 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E624792E7900F3C06A /* CocoaAsyncSocket.framework */; };
+		ADEBA05B26836CCF00719AD8 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD7009E624792E7900F3C06A /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		ADEBD0241C6C9D5F00F91D28 /* CRMimeTypeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = ADEBD0221C6C9D5F00F91D28 /* CRMimeTypeHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADEBD0261C6C9D5F00F91D28 /* CRMimeTypeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEBD0231C6C9D5F00F91D28 /* CRMimeTypeHelper.m */; };
 		ADED0FD41DB7A1E700E2CDE9 /* CRUploadedFile_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADED0FD31DB7A1E700E2CDE9 /* CRUploadedFile_Internal.h */; };
@@ -152,27 +150,6 @@
 			remoteGlobalIDString = ADEDB3751AEFC0B000A26AF1;
 			remoteInfo = "Criollo macOS";
 		};
-		AD2411EA2682512A0076D5D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD7009DD24792E7900F3C06A /* CocoaAsyncSocket.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 9FC41F121B9D965000578BEB;
-			remoteInfo = "Mac CocoaAsyncSocket";
-		};
-		AD2411F4268251720076D5D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD7009DD24792E7900F3C06A /* CocoaAsyncSocket.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 6CD9900F1B77868C0011A685;
-			remoteInfo = "iOS CocoaAsyncSocket";
-		};
-		AD241201268256700076D5D5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AD7009DD24792E7900F3C06A /* CocoaAsyncSocket.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D8B70C31BCFA15700D8E273;
-			remoteInfo = "tvOS CocoaAsyncSocket";
-		};
 		AD7009E324792E7900F3C06A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AD7009DD24792E7900F3C06A /* CocoaAsyncSocket.xcodeproj */;
@@ -194,16 +171,23 @@
 			remoteGlobalIDString = 7D8B70C41BCFA15700D8E273;
 			remoteInfo = "tvOS CocoaAsyncSocket";
 		};
+		ADEBA05D26836CDC00719AD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AD7009DD24792E7900F3C06A /* CocoaAsyncSocket.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9FC41F121B9D965000578BEB;
+			remoteInfo = "Mac CocoaAsyncSocket";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AD2411E5268250B10076D5D5 /* Embed Frameworks */ = {
+		ADEBA05C26836CCF00719AD8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				AD2411E4268250B10076D5D5 /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				ADEBA05B26836CCF00719AD8 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,7 +216,7 @@
 		AD001ADF1D455BA300DE4AC9 /* CRRouteMatchingResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRRouteMatchingResult.m; sourceTree = "<group>"; };
 		AD001AE21D455C4F00DE4AC9 /* CRRouteMatchingResult_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRouteMatchingResult_Internal.h; sourceTree = "<group>"; };
 		AD001AE91D45883C00DE4AC9 /* CRRouter_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CRRouter_Internal.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		AD030FDB1F0C02C900BD9FE4 /* CriolloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CriolloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD030FDB1F0C02C900BD9FE4 /* CriolloTests (macOS).xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CriolloTests (macOS).xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD030FDF1F0C02C900BD9FE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD0BA9901C961898005206A1 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		AD0BCC62245EBCEE0014A920 /* CRServerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CRServerTests.m; sourceTree = "<group>"; };
@@ -303,7 +287,6 @@
 		ADAB165F1C8C49DB001E104C /* CRRequestRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRequestRange.h; sourceTree = "<group>"; };
 		ADAB16601C8C49DB001E104C /* CRRequestRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRRequestRange.m; sourceTree = "<group>"; };
 		ADAB16631C8C4E90001E104C /* CRRequestRange_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRequestRange_Internal.h; sourceTree = "<group>"; };
-		ADAD3F1126823FF5000D50B8 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		ADAD52571D3E31AC00DDFBB5 /* CRRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CRRouter.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		ADAD52581D3E31AC00DDFBB5 /* CRRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CRRouter.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		ADAD525F1D3E484900DDFBB5 /* CRRouteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRRouteController.h; sourceTree = "<group>"; };
@@ -350,9 +333,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD241203268256890076D5D5 /* CocoaAsyncSocket.framework in Frameworks */,
-				AD2411F8268251940076D5D5 /* CocoaAsyncSocket.framework in Frameworks */,
-				AD2411E3268250B10076D5D5 /* CocoaAsyncSocket.framework in Frameworks */,
+				ADEBA05A26836CCF00719AD8 /* CocoaAsyncSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +358,6 @@
 		4A96B1821F95576F0091B193 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				ADAD3F1126823FF5000D50B8 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -584,7 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				ADEDB3761AEFC0B000A26AF1 /* Criollo.framework */,
-				AD030FDB1F0C02C900BD9FE4 /* CriolloTests.xctest */,
+				AD030FDB1F0C02C900BD9FE4 /* CriolloTests (macOS).xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -723,9 +703,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AD030FDA1F0C02C900BD9FE4 /* CriolloTests */ = {
+		AD030FDA1F0C02C900BD9FE4 /* CriolloTests (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD030FE71F0C02C900BD9FE4 /* Build configuration list for PBXNativeTarget "CriolloTests" */;
+			buildConfigurationList = AD030FE71F0C02C900BD9FE4 /* Build configuration list for PBXNativeTarget "CriolloTests (macOS)" */;
 			buildPhases = (
 				AD030FD71F0C02C900BD9FE4 /* Sources */,
 				AD030FD81F0C02C900BD9FE4 /* Frameworks */,
@@ -736,29 +716,27 @@
 			dependencies = (
 				AD030FE21F0C02C900BD9FE4 /* PBXTargetDependency */,
 			);
-			name = CriolloTests;
+			name = "CriolloTests (macOS)";
 			productName = CriolloTests;
-			productReference = AD030FDB1F0C02C900BD9FE4 /* CriolloTests.xctest */;
+			productReference = AD030FDB1F0C02C900BD9FE4 /* CriolloTests (macOS).xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		ADEDB3751AEFC0B000A26AF1 /* Criollo */ = {
+		ADEDB3751AEFC0B000A26AF1 /* Criollo (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ADEDB38A1AEFC0B100A26AF1 /* Build configuration list for PBXNativeTarget "Criollo" */;
+			buildConfigurationList = ADEDB38A1AEFC0B100A26AF1 /* Build configuration list for PBXNativeTarget "Criollo (macOS)" */;
 			buildPhases = (
 				ADEDB3711AEFC0B000A26AF1 /* Sources */,
 				ADEDB3721AEFC0B000A26AF1 /* Frameworks */,
 				ADEDB3731AEFC0B000A26AF1 /* Headers */,
 				ADEDB3741AEFC0B000A26AF1 /* Resources */,
-				AD2411E5268250B10076D5D5 /* Embed Frameworks */,
+				ADEBA05C26836CCF00719AD8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AD241202268256700076D5D5 /* PBXTargetDependency */,
-				AD2411EB2682512A0076D5D5 /* PBXTargetDependency */,
-				AD2411F5268251720076D5D5 /* PBXTargetDependency */,
+				ADEBA05E26836CDC00719AD8 /* PBXTargetDependency */,
 			);
-			name = Criollo;
+			name = "Criollo (macOS)";
 			productName = Criollo;
 			productReference = ADEDB3761AEFC0B000A26AF1 /* Criollo.framework */;
 			productType = "com.apple.product-type.framework";
@@ -812,8 +790,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				ADEDB3751AEFC0B000A26AF1 /* Criollo */,
-				AD030FDA1F0C02C900BD9FE4 /* CriolloTests */,
+				ADEDB3751AEFC0B000A26AF1 /* Criollo (macOS) */,
+				AD030FDA1F0C02C900BD9FE4 /* CriolloTests (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -959,24 +937,13 @@
 /* Begin PBXTargetDependency section */
 		AD030FE21F0C02C900BD9FE4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = ADEDB3751AEFC0B000A26AF1 /* Criollo */;
+			target = ADEDB3751AEFC0B000A26AF1 /* Criollo (macOS) */;
 			targetProxy = AD030FE11F0C02C900BD9FE4 /* PBXContainerItemProxy */;
 		};
-		AD2411EB2682512A0076D5D5 /* PBXTargetDependency */ = {
+		ADEBA05E26836CDC00719AD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Mac CocoaAsyncSocket";
-			targetProxy = AD2411EA2682512A0076D5D5 /* PBXContainerItemProxy */;
-		};
-		AD2411F5268251720076D5D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "iOS CocoaAsyncSocket";
-			platformFilter = ios;
-			targetProxy = AD2411F4268251720076D5D5 /* PBXContainerItemProxy */;
-		};
-		AD241202268256700076D5D5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "tvOS CocoaAsyncSocket";
-			targetProxy = AD241201268256700076D5D5 /* PBXContainerItemProxy */;
+			targetProxy = ADEBA05D26836CDC00719AD8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -984,24 +951,10 @@
 		AD030FE31F0C02C900BD9FE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = CriolloTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1009,7 +962,6 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.criollo.CriolloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1018,18 +970,6 @@
 		AD030FE41F0C02C900BD9FE4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				INFOPLIST_FILE = CriolloTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1037,7 +977,6 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = io.criollo.CriolloTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1047,52 +986,87 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES_ERROR;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES_ERROR;
+				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES_ERROR;
+				CLANG_WARN_MISSING_NOESCAPE = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_INTERFACE_IVARS = YES_ERROR;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CURRENT_PROJECT_VERSION = 45;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CURRENT_PROJECT_VERSION = 46;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1.0;
-				DYLIB_CURRENT_VERSION = 1.0.1;
+				DYLIB_COMPATIBILITY_VERSION = 2.0;
+				DYLIB_CURRENT_VERSION = 2.0.0;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Criollo/Criollo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = "$(DYLIB_CURRENT_VERSION).$(CURRENT_PROJECT_VERSION)-$(VERSION_INFO_SUFFIX)";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = io.criollo.Criollo;
-				PRODUCT_NAME = Criollo;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.criollo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_SUFFIX = alpha;
 				WARNING_CFLAGS = "-Wpartial-availability";
 			};
 			name = Debug;
@@ -1101,50 +1075,86 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_UNDEFINED_BEHAVIOR_SANITIZER_NULLABILITY = YES;
+				CLANG_WARN_ASSIGN_ENUM = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES_ERROR;
 				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES_ERROR;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES_ERROR;
+				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES_ERROR;
+				CLANG_WARN_MISSING_NOESCAPE = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_INTERFACE_IVARS = YES_ERROR;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES_ERROR;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CURRENT_PROJECT_VERSION = 45;
+				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
+				CURRENT_PROJECT_VERSION = 46;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1.0;
-				DYLIB_CURRENT_VERSION = 1.0.1;
+				DYLIB_COMPATIBILITY_VERSION = 2.0;
+				DYLIB_CURRENT_VERSION = 2.0.0;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES_ERROR;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_HIDDEN_VIRTUAL_FUNCTIONS = YES;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_NON_VIRTUAL_DESTRUCTOR = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNKNOWN_PRAGMAS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Criollo/Criollo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.criollo.Criollo;
-				PRODUCT_NAME = Criollo;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos";
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = "$(DYLIB_CURRENT_VERSION).$(CURRENT_PROJECT_VERSION)-$(VERSION_INFO_SUFFIX)";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.criollo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_SUFFIX = alpha;
 				WARNING_CFLAGS = "-Wpartial-availability";
 			};
 			name = Release;
@@ -1152,82 +1162,31 @@
 		ADEDB38B1AEFC0B100A26AF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
-				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
-				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
-				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_ASSIGN_ENUM = YES;
-				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
-				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
-				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
-				CLANG_WARN_OBJC_INTERFACE_IVARS = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
-				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 46;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				PRODUCT_NAME = Criollo;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
 		};
 		ADEDB38C1AEFC0B100A26AF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_GCD_PERFORMANCE = YES;
-				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
-				CLANG_ANALYZER_SECURITY_INSECUREAPI_RAND = YES;
-				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_ASSIGN_ENUM = YES;
-				CLANG_WARN_FRAMEWORK_INCLUDE_PRIVATE_FROM_PUBLIC = YES;
-				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
-				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
-				CLANG_WARN_OBJC_INTERFACE_IVARS = YES;
-				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SEMICOLON_BEFORE_METHOD_BODY = YES;
+				CURRENT_PROJECT_VERSION = 46;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
-				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
-				GCC_WARN_SHADOW = YES;
-				GCC_WARN_SIGN_COMPARE = YES;
-				GCC_WARN_STRICT_SELECTOR_MATCH = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNKNOWN_PRAGMAS = YES;
-				GCC_WARN_UNUSED_LABEL = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SUPPORTED_PLATFORMS = "macosx iphonesimulator iphoneos appletvsimulator appletvos";
+				PRODUCT_NAME = Criollo;
+				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD030FE71F0C02C900BD9FE4 /* Build configuration list for PBXNativeTarget "CriolloTests" */ = {
+		AD030FE71F0C02C900BD9FE4 /* Build configuration list for PBXNativeTarget "CriolloTests (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD030FE31F0C02C900BD9FE4 /* Debug */,
@@ -1245,7 +1204,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ADEDB38A1AEFC0B100A26AF1 /* Build configuration list for PBXNativeTarget "Criollo" */ = {
+		ADEDB38A1AEFC0B100A26AF1 /* Build configuration list for PBXNativeTarget "Criollo (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ADEDB38B1AEFC0B100A26AF1 /* Debug */,

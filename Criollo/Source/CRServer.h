@@ -55,8 +55,8 @@ NS_ERROR_ENUM(CRServerErrorDomain) {
 // TODO: Move error param to the end
 - (BOOL)startListening;
 - (BOOL)startListening:(NSError * _Nullable __autoreleasing * _Nullable)error;
-- (BOOL)startListening:(NSError * _Nullable __autoreleasing * _Nullable)error portNumber:(NSUInteger)portNumber;
-- (BOOL)startListening:(NSError * _Nullable __autoreleasing * _Nullable)error portNumber:(NSUInteger)portNumber interface:(NSString * _Nullable)interface;
+- (BOOL)startListening:(NSError * _Nullable __autoreleasing * _Nullable)error portNumber:(UInt16)portNumber;
+- (BOOL)startListening:(NSError * _Nullable __autoreleasing * _Nullable)error portNumber:(UInt16)portNumber interface:(NSString * _Nullable)interface;
 
 - (void)stopListening;
 - (void)closeAllConnections:(dispatch_block_t _Nullable)completion;

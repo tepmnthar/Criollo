@@ -93,11 +93,11 @@ NS_ASSUME_NONNULL_END
     return [self startListening:error portNumber:0 interface:nil];
 }
 
-- (BOOL)startListening:(NSError *__autoreleasing *)error portNumber:(NSUInteger)portNumber {
+- (BOOL)startListening:(NSError *__autoreleasing *)error portNumber:(UInt16)portNumber {
     return [self startListening:error portNumber:portNumber interface:nil];
 }
 
-- (BOOL)startListening:(NSError *__autoreleasing *)error portNumber:(NSUInteger)portNumber interface:(NSString *)interface {
+- (BOOL)startListening:(NSError *__autoreleasing *)error portNumber:(UInt16)portNumber interface:(NSString *)interface {
     if (portNumber != 0 ) {
         self.configuration.CRServerPort = portNumber;
     }

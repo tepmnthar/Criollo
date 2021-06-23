@@ -46,7 +46,7 @@
     return connection;
 }
 
-- (BOOL)startListening:(NSError *__autoreleasing  _Nullable *)error portNumber:(NSUInteger)portNumber interface:(NSString *)interface {
+- (BOOL)startListening:(NSError *__autoreleasing  _Nullable *)error portNumber:(UInt16)portNumber interface:(NSString *)interface {
     if (self.isSecure) {
         self.certificates = nil;
         self.httpsHelper = [CRHTTPSHelper new];

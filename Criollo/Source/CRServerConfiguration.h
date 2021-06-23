@@ -11,14 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface CRServerConfiguration : NSObject
 
-@property (nonatomic, strong) NSString* CRServerInterface;
-@property (nonatomic, assign) NSUInteger CRServerPort;
+@property (nonatomic, strong) NSString *CRServerInterface;
+@property (nonatomic, assign) UInt16 CRServerPort;
 
-@property (nonatomic, assign) NSUInteger CRConnectionReadTimeout;
-@property (nonatomic, assign) NSUInteger CRConnectionWriteTimeout;
+@property (nonatomic, assign, readonly) NSTimeInterval CRConnectionReadTimeout;
+@property (nonatomic, assign, readonly) NSTimeInterval CRConnectionWriteTimeout;
 
-@property (nonatomic, assign) NSUInteger CRConnectionKeepAliveTimeout;
-@property (nonatomic, assign) NSUInteger CRConnectionMaxKeepAliveConnections;
+@property (nonatomic, assign, readonly) NSTimeInterval CRConnectionKeepAliveTimeout;
+@property (nonatomic, assign, readonly) NSTimeInterval CRConnectionMaxKeepAliveConnections;
 
 - (void)readConfiguration;
 

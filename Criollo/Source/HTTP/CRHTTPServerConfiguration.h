@@ -12,11 +12,11 @@
 
 @interface CRHTTPServerConfiguration : CRServerConfiguration
 
-@property (nonatomic, assign) NSUInteger CRHTTPConnectionReadHeaderTimeout;
-@property (nonatomic, assign) NSUInteger CRHTTPConnectionReadBodyTimeout;
+@property (nonatomic, assign, readonly) NSTimeInterval CRHTTPConnectionReadHeaderTimeout;
+@property (nonatomic, assign, readonly) NSTimeInterval CRHTTPConnectionReadBodyTimeout;
 
-@property (nonatomic, assign) NSUInteger CRRequestMaxHeaderLength;
+@property (nonatomic, assign, readonly) size_t CRRequestMaxHeaderLength;
 
-@property (nonatomic, assign) NSUInteger CRRequestBodyBufferSize;
+@property (nonatomic, assign, readonly) size_t CRRequestBodyBufferSize;
 
 @end

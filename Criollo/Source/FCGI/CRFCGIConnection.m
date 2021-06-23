@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_END
     CRFCGIServerConfiguration* config = (CRFCGIServerConfiguration*)self.server.configuration;
 
     // Read the begin request record
-    NSUInteger timeout = (didPerformInitialRead ? config.CRConnectionKeepAliveTimeout : config.CRConnectionReadTimeout) + config.CRFCGIConnectionReadRecordTimeout;
+    NSTimeInterval timeout = (didPerformInitialRead ? config.CRConnectionKeepAliveTimeout : config.CRConnectionReadTimeout) + config.CRFCGIConnectionReadRecordTimeout;
     [self.socket readDataToLength:CRFCGIRecordHeaderLength withTimeout:timeout tag:CRFCGIConnectionSocketTagReadRecordHeader];
 }
 
@@ -269,7 +269,7 @@ NS_ASSUME_NONNULL_END
 
                     // Request role
                     [data getBytes:&currentRequestRole range:NSMakeRange(0, 2)];
-                    currentRequestRole = CFSwapInt16BigToHost(currentRequestRole);
+                    currentRequestRole = (UInt8)CFSwapInt16BigToHost(currentRequestRole);
 
                     // Request flags
                     [data getBytes:&currentRequestFlags range:NSMakeRange(2, 1)];

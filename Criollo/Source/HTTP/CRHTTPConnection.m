@@ -43,7 +43,7 @@
     CRHTTPServerConfiguration* config = (CRHTTPServerConfiguration*)self.server.configuration;
 
     // Read the request headers
-    NSUInteger timeout = didPerformInitialRead ? config.CRConnectionKeepAliveTimeout : config.CRConnectionReadTimeout + config.CRHTTPConnectionReadHeaderTimeout;
+    NSTimeInterval timeout = didPerformInitialRead ? config.CRConnectionKeepAliveTimeout : config.CRConnectionReadTimeout + config.CRHTTPConnectionReadHeaderTimeout;
     [self.socket readDataToData:NSData.CRLFCRLF withTimeout:timeout maxLength:config.CRRequestMaxHeaderLength tag:CRHTTPConnectionSocketTagBeginReadingRequest];
 }
 

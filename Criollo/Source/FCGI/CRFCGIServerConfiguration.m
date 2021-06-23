@@ -9,31 +9,29 @@
 #import "CRFCGIServerConfiguration.h"
 
 // Defaults
-NSUInteger const CRFCGIConnectionDefaultReadRecordTimeout = 5;
-NSUInteger const CRFCGIConnectionDefaultSocketWriteBuffer = 32 * 1024;
+static NSTimeInterval const CRFCGIConnectionDefaultReadRecordTimeout = 5.;
+static size_t const CRFCGIConnectionDefaultSocketWriteBuffer = 32 * 1024;
 
 // Keys
-NSString* const CRFCGIConnectionReadRecordTimeoutKey = @"CRFCGIConnectionReadRecordTimeout";
-NSString* const CRFCGIConnectionSocketWriteBufferKey = @"CRFCGIConnectionSocketWriteBuffer";
+static NSString * const CRFCGIConnectionReadRecordTimeoutKey = @"CRFCGIConnectionReadRecordTimeout";
+static NSString * const CRFCGIConnectionSocketWriteBufferKey = @"CRFCGIConnectionSocketWriteBuffer";
 
 @implementation CRFCGIServerConfiguration
 
 - (void)readConfiguration {
-
     [super readConfiguration];
 
     NSBundle* mainBundle = [NSBundle mainBundle];
-
-    if ( [mainBundle objectForInfoDictionaryKey:CRFCGIConnectionReadRecordTimeoutKey] ) {
-        self.CRFCGIConnectionReadRecordTimeout = [[mainBundle objectForInfoDictionaryKey:CRFCGIConnectionReadRecordTimeoutKey] integerValue];
+    if ([mainBundle objectForInfoDictionaryKey:CRFCGIConnectionReadRecordTimeoutKey]) {
+        _CRFCGIConnectionReadRecordTimeout = [[mainBundle objectForInfoDictionaryKey:CRFCGIConnectionReadRecordTimeoutKey] doubleValue];
     } else {
-        self.CRFCGIConnectionReadRecordTimeout = CRFCGIConnectionDefaultReadRecordTimeout;
+        _CRFCGIConnectionReadRecordTimeout = CRFCGIConnectionDefaultReadRecordTimeout;
     }
 
-    if ( [mainBundle objectForInfoDictionaryKey:CRFCGIConnectionSocketWriteBufferKey] ) {
-        self.CRFCGIConnectionSocketWriteBuffer = [[mainBundle objectForInfoDictionaryKey:CRFCGIConnectionSocketWriteBufferKey] integerValue];
+    if ([mainBundle objectForInfoDictionaryKey:CRFCGIConnectionSocketWriteBufferKey] ) {
+        _CRFCGIConnectionSocketWriteBuffer = [[mainBundle objectForInfoDictionaryKey:CRFCGIConnectionSocketWriteBufferKey] unsignedLongLongValue];
     } else {
-        self.CRFCGIConnectionSocketWriteBuffer = CRFCGIConnectionDefaultSocketWriteBuffer;
+        _CRFCGIConnectionSocketWriteBuffer = CRFCGIConnectionDefaultSocketWriteBuffer;
     }
 
 }
